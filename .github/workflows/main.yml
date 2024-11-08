@@ -36,6 +36,6 @@ jobs:
           script: |
             sudo rm -rf /var/www/html/*
             sudo rm -rf /var/www/html/.git
-            sudo rm -rf /var/www/html/.github
+            sudo rm -rf /var/www/html/.github  
             sudo git clone https://github.com/HindiaGenius/Web /var/www/html/
             
