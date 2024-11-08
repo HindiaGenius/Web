@@ -1,26 +1,28 @@
 on:
   push:
-  branch:
-    . main
+    branches:
+      - main
+
 jobs:
   build: 
     name: build app
     runs-on: ubuntu-latest
     steps: 
-      . name: menampilkan teks
-        run: echo " ini step build"
+      - name: menampilkan teks
+        run: echo "ini step build"
+
   test: 
     name: test app
     runs-on: ubuntu-latest
     needs: build
     steps: 
-      . name: menampilkan teks
+      - name: menampilkan teks
         run: echo "ini step test"
+
   deployment: 
     name: deployment app
     runs-on: ubuntu-latest
     needs: test
     steps: 
-      . name: menampilkan teks
+      - name: menampilkan teks
         run: echo "ini step deployment"
-        
