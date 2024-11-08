@@ -5,20 +5,20 @@ on:
 jobs:
   build: 
     name: build app
-    runs-as: ubuntu-latest
+    runs-on: ubuntu-latest
     steps: 
       . name: menampilkan teks
-        run: echo "ini step build"
+        run: echo " ini step build"
   test: 
     name: test app
-    runs-as: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: build
     steps: 
       . name: menampilkan teks
         run: echo "ini step test"
   deployment: 
     name: deployment app
-    runs-as: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: test
     steps: 
       . name: menampilkan teks
