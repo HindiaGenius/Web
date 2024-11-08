@@ -20,9 +20,20 @@ jobs:
         run: echo "ini step test"
 
   deployment: 
-    name: deployment app
+    name: deploy app
     runs-on: ubuntu-latest
     needs: test
     steps: 
       - name: menampilkan teks
         run: echo "ini step deployment"
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: /
+            rm -rf /var/www/html/*
+            git clone https://github.com/HindiaGenius/Web /var/www/html/
+            
