@@ -26,13 +26,13 @@ jobs:
     steps: 
       - name: menampilkan teks
         run: echo "ini step deployment"
-      - name: executing remote ssh commands using password
+      - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.2
         with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            port: ${{ secrets.PORT }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
             script: |
                 sudo rm -rf /var/www/html/*
                 sudo rm -rf /var/www/html/.git
